@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      margin: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Simple Calculator</h2>
+
+  <form id="calculatorForm">
+    <input type="number" id="operand1" placeholder="Enter Operand 1" required>
+    <select id="operator" required>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="operand2" placeholder="Enter Operand 2" required>
+    <button type="button" onclick="calculate()">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      // Get input values
+      const operand1 = parseFloat(document.getElementById('operand1').value);
+      const operator = document.getElementById('operator').value;
+      const operand2 = parseFloat(document.getElementById('operand2').value);
+
+      // Perform calculation based on the operator
+      let result;
+      switch (operator) {
+        case '+':
+          result = operand1 + operand2;
+          break;
+        case '-':
+          result = operand1 - operand2;
+          break;
+        case '*':
+          result = operand1 * operand2;
+          break;
+        case '/':
+          result = operand1 / operand2;
+          break;
+        default:
+          result = 'Invalid Operator';
+      }
+
+      // Display the result
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+  </script>
+
+</body>
+</html>
